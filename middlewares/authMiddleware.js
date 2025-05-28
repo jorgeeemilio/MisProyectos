@@ -1,3 +1,4 @@
+// middlewares/authMiddleware.js
 function requireLogin(req, res, next) {
   if (req.session && req.session.usuarioId) {
     return next();

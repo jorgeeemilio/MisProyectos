@@ -1,8 +1,8 @@
-// routes/idiomaRoutes.js
+// routes/proyectosRoutes.js
 const express = require('express');
 const router = express.Router();
 const proyectoController = require('../controllers/proyectoController');
-const tareasController = require('../controllers/tareasController'); // Agrega esta línea
+const tareasController = require('../controllers/tareasController');
 
 
 router.get('/', proyectoController.list);

@@ -69,14 +69,14 @@ proyectoController.store = (req, res) => {
 proyectoController.edit = async (req, res) => {
   const { id } = req.params;
   try {
-    const proyecto = await Proyecto.findById(id); // Cambia aquí
+    const proyecto = await Proyecto.findById(id);
     // En tu controlador antes de renderizar
     proyecto.isBaja = proyecto.prioridadProyecto == 1;
     proyecto.isMedia = proyecto.prioridadProyecto == 2;
     proyecto.isAlta = proyecto.prioridadProyecto == 3;
     proyecto.fechaProyecto = formatDateToInput(proyecto.fechaProyecto);
     proyecto.fechaFinProyecto = formatDateToInput(proyecto.fechaFinProyecto);
-    res.render('proyectos/edit', { proyecto }); // Si tu vista espera "Proyecto"
+    res.render('proyectos/edit', { proyecto });
   } catch (err) {
     console.error(err);
     res.status(500).send('Error al obtener el Proyecto');

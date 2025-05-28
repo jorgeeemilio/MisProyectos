@@ -1,3 +1,4 @@
+// controllers/authController.js
 const usuariosModel = require('../models/usuariosModel');
 
 exports.showLogin = (req, res) => {
@@ -14,9 +15,9 @@ exports.login = (req, res) => {
           if (code === 200) {
             // Login exitoso, redirige o guarda sesión
             req.session.usuario = data.usuario;
-            req.session.usuarioId = data.usuario.idUsuario; // o el nombre de tu campo de id
+            req.session.usuarioId = data.usuario.idUsuario;
             console.log('Usuario logueado:', req.session.usuario.idUsuario);
-            return res.redirect('/proyectos'); // Cambia la ruta según tu app
+            return res.redirect('/proyectos');
           } else {
             // Error de login
             return res.render('login', { error: data.message });

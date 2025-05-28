@@ -1,3 +1,4 @@
+// models/UsuariosModel.js
 const db = require('../config/database');
 const Usuario = {};
 // Obtener todos los usuarios

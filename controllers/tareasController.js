@@ -1,11 +1,9 @@
 const Tarea = require('../models/tareasModel');
-const path = require('path');
-const fs = require('fs');
 
 const tareasController = {};
 
 tareasController.list = async (req, res) => {
-  // Ejemplo: lista todas las tareas (puedes adaptar)
+  // Ejemplo: lista todas las tareas
   const tareas = await Tarea.findByProyecto(req.query.idProyecto || 1);
   res.render('tareas/index', { tareas });
 };
