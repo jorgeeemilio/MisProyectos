@@ -1,0 +1,19 @@
+<!-- views/proyectos/create.hbs -->
+<h1 class="mb-4">Nuevo Proyecto</h1>
+<form action="/proyectos" method="POST">
+  <div class="form-group">
+    <label for="nombreProyecto">Nombre del Proyecto</label>
+    <input type="text" class="form-control" id="nombreProyecto" name="nombreProyecto" required>
+  </div>
+  <div class="form-group">
+    <label for="prioridadProyecto">Prioridad del Proyecto</label>
+    <select class="form-control" id="prioridadProyecto" name="prioridadProyecto" required>
+       <option value="">Elegir Prioridad...</option>
+       <option value="1">Baja</option>
+      <option value="2">Media</option>
+      <option value="3">Alta</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Guardar</button>
+  <a href="/proyectos/" class="btn btn-secondary">Volver</a>
+</form>

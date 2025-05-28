@@ -1,0 +1,47 @@
+<!-- views/proyectos/index.hbs -->
+<h1 class="mb-4">Lista de Proyectos Activos</h1>
+<a href="/proyectos/create" class="btn btn-primary mb-3">Nuevo Proyecto</a>
+<a href="/proyectos/closed" class="btn btn-secondary mb-3">Proyectos cerrados</a>
+<table class="table table-striped table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Fecha Inicio</th>
+      <th scope="col">Prioridad</th>
+      <th scope="col">Fecha Fin</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each proyectos}}
+    <tr>
+      <td>{{idProyecto}}</td>
+      <td><a href="/tareas/{{idProyecto}}/{{nombreProyecto}}">{{nombreProyecto}}</a></td>
+      <td>{{fechaProyecto}}</td>
+      <td>{{prioridadProyecto}}</td>
+      <td>{{fechaFinProyecto}}</td>
+      <td>
+        <a href="/proyectos/edit/{{idProyecto}}" class="btn btn-warning btn-sm">
+          <i class="fas fa-edit"></i> Editar
+        </a>
+        <a href="#" class="btn btn-danger btn-sm" onclick="confirmDelete({{idProyecto}})">
+          <i class="fas fa-trash"></i> Borrar
+        </a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<!-- Script para confirmar la eliminación -->
+<script>
+  function confirmDelete(id) {
+    if (confirm('¿Estás seguro de que deseas borrar este proyecto?')) {
+      window.location.href = `/proyectos/delete/${id}`;
+    }
+  }
+</script>
+
+<!-- Font Awesome para los iconos -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

@@ -1,0 +1,27 @@
+<!-- views/proyectos/edit.hbs -->
+<h1 class="mb-4">Editar Proyecto</h1>
+<form action="/proyectos/edit/{{proyecto.idProyecto}}" method="POST">
+  <div class="form-group">
+    <label for="nombreProyecto">Nombre del Proyecto</label>
+    <input type="text" class="form-control" id="nombreProyecto" name="nombreProyecto" value="{{proyecto.nombreProyecto}}" required>
+  </div>
+  <div class="form-group">
+    <label for="fechaProyecto">Fecha de Inicio</label>
+    <input type="date" class="form-control" id="fechaProyecto" name="fechaProyecto" value="{{proyecto.fechaProyecto}}" required>
+  </div>
+  <div class="form-group">
+    <label for="prioridadProyecto">Prioridad</label>
+    <select class="form-control" id="prioridadProyecto" name="prioridadProyecto" required>
+      <option value="1" {{#if proyecto.isBaja}}selected{{/if}}>Baja</option>
+      <option value="2" {{#if proyecto.isMedia}}selected{{/if}}>Media</option>
+      <option value="3" {{#if proyecto.isAlta}}selected{{/if}}>Alta</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="fechaFinProyecto">Fecha de Fin</label>
+    <input type="date" class="form-control" id="fechaFinProyecto" name="fechaFinProyecto" value="{{proyecto.fechaFinProyecto}}">
+  </div>
+  <input type="hidden" name="idProyecto" value="{{proyecto.idProyecto}}">
+  <button type="submit" class="btn btn-primary">Actualizar</button>
+  <a href="/proyectos/" class="btn btn-secondary">Volver</a>
+</form>

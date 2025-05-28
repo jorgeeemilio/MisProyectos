@@ -1,0 +1,59 @@
+<!-- views/tareas/edit.hbs -->
+<h1 class="mb-4">Editar Tarea de {{nombreProyecto}}</h1>
+<a href="/tareas/{{idProyecto}}/{{nombreProyecto}}" class="btn btn-secondary mb-3">Volver a Tareas</a>
+
+<form action="/tareas/edit/{{tarea.idTarea}}/{{idProyecto}}/{{nombreProyecto}}" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="descripcionTarea">Descripción</label>
+    <input type="text" class="form-control" id="descripcionTarea" name="descripcionTarea" value="{{tarea.descripcionTarea}}" required>
+  </div>
+  <div class="form-group">
+    <label for="fechaTarea">Fecha</label>
+    <input type="date" class="form-control" id="fechaTarea" name="fechaTarea" value="{{tarea.fechaTarea}}" required>
+  </div>
+  <div class="form-group">
+    <label for="horaTarea">Hora</label>
+    <input type="time" class="form-control" id="horaTarea" name="horaTarea" value="{{tarea.horaTarea}}">
+  </div>
+  <div class="form-group">
+    <label for="imagenTarea">Imagen</label>
+    <input type="file" class="form-control" id="imagenTarea" name="imagenTarea" accept="image/*">
+    {{#if tarea.imagenTarea}}
+      <div class="mt-2">
+        <img src="/uploads/{{tarea.imagenTarea}}" alt="Imagen actual" style="max-width: 150px;">
+      </div>
+    {{/if}}
+  </div>
+  <div class="form-group">
+    <label for="correoTarea">Correo</label>
+    <input type="email" class="form-control" id="correoTarea" name="correoTarea" value="{{tarea.correoTarea}}">
+  </div>
+  <div class="form-group">
+    <label for="urlTarea">URL</label>
+    <input type="url" class="form-control" id="urlTarea" name="urlTarea" value="{{tarea.urlTarea}}">
+  </div>
+  <div class="form-group">
+    <label for="audioTarea">Audio</label>
+    <input type="file" class="form-control" id="audioTarea" name="audioTarea" accept="audio/*">
+    {{#if tarea.audioTarea}}
+      <div class="mt-2">
+        <audio controls src="/uploads/{{tarea.audioTarea}}"></audio>
+      </div>
+    {{/if}}
+  </div>
+  <div class="form-group">
+    <label for="prioridadTarea">Prioridad</label>
+    <select class="form-control" id="prioridadTarea" name="prioridadTarea" required>
+      <option value="1" {{#if tarea.isBaja}}selected{{/if}}>Baja</option>
+      <option value="2" {{#if tarea.isMedia}}selected{{/if}}>Media</option>
+      <option value="3" {{#if tarea.isAlta}}selected{{/if}}>Alta</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-success mt-3">Guardar Cambios</button>
+</form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('descripcionTarea').focus();
+  });
+</script>

@@ -1,0 +1,34 @@
+html {
+  height: 100%;
+}
+body {
+  min-height: 100vh;
+  background-image: url('/images/pattern.png');
+  background-repeat: repeat;
+  background-size: auto;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* Solo la superposición, detrás del contenido */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.8); /* Ajusta el 0.6 para más o menos claridad */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* El contenido principal por encima */
+.container, body > * {
+  position: relative;
+  z-index: 1;
+}
+
+.content-bg {
+  background: rgba(255,255,255,0.95); /* Blanco casi opaco */
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  padding: 32px 24px;
+}

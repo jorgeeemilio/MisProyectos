@@ -1,0 +1,3 @@
+usuarios(#idUsuario, nombreUsuario, claveUsuario, tipoUsuario)
+proyectos(#idProyecto, nombreProyecto, fechaProyecto, fechaFinProyecto, prioridadProyecto, idUsuarioFK)
+tareas(#idTarea, descripcionTarea, fechaTarea, horaTarea, imagenTarea, correoTarea, urlTarea, audioTarea, idProyectoFK)
